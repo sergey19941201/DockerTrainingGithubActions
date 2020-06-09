@@ -9,7 +9,7 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Hello world action step $GITHUB_ACTION
         uses: ./HelloAction # Uses an action in the root directory
         id: hello
         with:
