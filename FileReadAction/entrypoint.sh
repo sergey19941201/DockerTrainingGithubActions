@@ -18,10 +18,12 @@ done < "$input"
 sed -i 's/love/nolove/g' my_package.txt
 
 input="my_package.txt"
+result="ddd"
 while IFS= read -r line
 do
   echo "$line"
+  result+="$line"
 done < "$input"
 
-value="my_package.txt"
-echo "::set-output name=surname::$value"
+
+echo "::set-output name=surname::$result"
