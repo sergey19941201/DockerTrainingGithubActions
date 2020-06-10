@@ -14,3 +14,11 @@ while IFS= read -r line
 do
   echo "$line"
 done < "$input"
+
+sed -i 's/love/nolove/g' my_package.txt
+
+input="my_package.txt"
+while IFS= read -r line
+do
+  echo "$line"
+done < "$input"
