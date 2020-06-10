@@ -10,16 +10,6 @@ do
 done
 
 
-sed -i 's/love/nolove/' my_package.txt
-
-input="my_package.txt"
-txtresult=""
-while IFS= read -r line
-do
-  echo "$line"
-  txtresult="$txtresult""$line"
-done < "$input"
-
 sed -i 's/android:versionName="0.0.0.0"/android:versionName=99.99.99.99/' AndroidManifest.xml
 
 xmlinput="AndroidManifest.xml"
@@ -31,5 +21,4 @@ do
 done < "$xmlinput"
 
 
-echo "::set-output name=result_text::$txtresult"
 echo "::set-output name=result_xml::$xmlresult"

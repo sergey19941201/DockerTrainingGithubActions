@@ -33,8 +33,14 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output text from script
-        run: echo "Result text from .sh ${{ steps.read_from_file.outputs.result_text }} dd ${{ steps.read_from_file.outputs.result_xml }}"
-        
+        run: |
+	  echo "Result manifest from .sh ${{ steps.read_from_file.outputs.result_xml }}"
+          expr ${{ steps.read_from_file.outputs.result_xml }} > manifest.xml
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v1
+        with:
+          name: manifest
+          path: manifest.xml
   job_1:
     name: Add 3 and 7
     runs-on: ubuntu-latest
