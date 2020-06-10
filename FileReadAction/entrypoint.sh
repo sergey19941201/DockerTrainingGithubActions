@@ -22,3 +22,6 @@ while IFS= read -r line
 do
   echo "$line"
 done < "$input"
+
+value="my_package.txt"
+echo "::set-output name=surname::$value"
