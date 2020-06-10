@@ -10,6 +10,11 @@ do
 done
 
 echo Get-Content my_package.txt
+value=$(<my_package.txt)
+echo "$value"
+
+valuemy=`cat config.txt`
+echo "$valuemy"
 
 value="my_package.txt"
 echo "::set-output name=surname::$value"
