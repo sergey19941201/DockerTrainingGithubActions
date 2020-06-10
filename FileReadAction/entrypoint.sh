@@ -9,8 +9,3 @@ do
    echo $eachfile
 done
 
-
-echo "$(<my_package.txt )"
-
-value="my_package.txt"
-echo "::set-output name=surname::$value"
