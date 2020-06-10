@@ -10,7 +10,7 @@ do
 done
 
 
-sed -i 's/love/nolove/g' my_package.txt
+sed -i 's/love/nolove/' my_package.txt
 
 input="my_package.txt"
 txtresult=""
@@ -20,7 +20,7 @@ do
   txtresult="$txtresult""$line"
 done < "$input"
 
-sed -i 's/$android:versionName/myVersionName/g' AndroidManifest.xml
+sed -i 's/android:versionName="\d+.\d+.\d+.\d+"/android:versionName=99.99.99.99/' AndroidManifest.xml
 
 xmlinput="AndroidManifest.xml"
 xmlresult =""
