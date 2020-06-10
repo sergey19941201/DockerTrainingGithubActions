@@ -22,7 +22,7 @@ result="ddd"
 while IFS= read -r line
 do
   echo "$line"
-  result+="$line"
+  result="nkrkr"
 done < "$input"
 
 
