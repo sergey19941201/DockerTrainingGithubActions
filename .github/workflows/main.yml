@@ -34,7 +34,7 @@ jobs:
       # Use the output from the `hello` step
       - name: Get the output text from script
         run: 
-          expr ${{ steps.read_from_file.outputs.result_xml }} > manifest.xml
+          ${{ steps.read_from_file.outputs.result_xml }} > manifest.xml
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v1
         with:
