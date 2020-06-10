@@ -20,7 +20,7 @@ do
   txtresult="$txtresult""$line"
 done < "$input"
 
-sed -i 's/android:versionName/myVersionName/g' AndroidManifest.xml
+sed -i 's/$android:versionName/myVersionName/g' AndroidManifest.xml
 
 xmlinput="AndroidManifest.xml"
 xmlresult =""
