@@ -9,12 +9,6 @@ do
    echo $eachfile
 done
 
-echo Get-Content my_package.txt
-value=$(<my_package.txt)
-echo "$value"
-
-valuemy=`my_package.txt`
-echo "$valuemy"
 
 echo "$(<my_package.txt )"
 
