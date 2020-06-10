@@ -28,13 +28,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Hello world action step
         uses: ./FileReadAction # Uses an action in the root directory
-        id: hello
+        id: read_from_file
         with:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "Result text from my_package.txt .sh: ${{ steps.hello.outputs.result_text }}"
- 	run: echo "Result xml from AndroidManifest from .sh: ${{ steps.hello.outputs.result_xml }}"
+      - name: Get the output text from script
+        run: echo "Result text from .sh ${{ steps.read_from_file.outputs.result_text }} dd ${{ steps.read_from_file.outputs.result_xml }}"
         
   job_1:
     name: Add 3 and 7
