@@ -9,3 +9,8 @@ do
    echo $eachfile
 done
 
+input="my_package.txt"
+while IFS= read -r line
+do
+  echo "$line"
+done < "$input"
