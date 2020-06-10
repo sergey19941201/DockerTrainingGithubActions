@@ -1,5 +1,5 @@
 #!/bin/sh -l
 
 echo "ReadFileContent $1"
-value=`\MobileAccess\MobileAccess.Droid\Properties\AndroidManifest.xml`
+value=`\my_package.json`
 echo "::set-output name=surname::$value"
