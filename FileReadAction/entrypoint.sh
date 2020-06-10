@@ -26,4 +26,4 @@ do
 done < "$input"
 
 
-echo "::set-output name=surname::$result"
+echo "::set-output name=result_text::$result"

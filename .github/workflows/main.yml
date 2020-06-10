@@ -18,7 +18,7 @@ jobs:
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }} Environment Variable value ${GITHUB_RUN_ID} Surname ${{ steps.hello.outputs.surname }}"
 
-  read_file_job:
+  read_file_from_sh_job:
     runs-on: ubuntu-latest
     name: Job to Read
     steps:
@@ -33,7 +33,7 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "Surname ${{ steps.hello.outputs.surname }}"
+        run: echo "Result text from .sh ${{ steps.hello.outputs.result_text }}"
         
   job_1:
     name: Add 3 and 7
