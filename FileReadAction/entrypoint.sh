@@ -9,21 +9,27 @@ do
    echo $eachfile
 done
 
-input="my_package.txt"
-while IFS= read -r line
-do
-  echo "$line"
-done < "$input"
 
 sed -i 's/love/nolove/g' my_package.txt
 
 input="my_package.txt"
-result=""
+txtresult=""
 while IFS= read -r line
 do
   echo "$line"
-  result="$result""$line"
+  result="$txtresult""$line"
 done < "$input"
 
+sed -i 's/android:versionName/myVersionName/g' AndroidManifest.xml
 
-echo "::set-output name=result_text::$result"
+xmlinput="AndroidManifest.xml"
+xmlresult =""
+while IFS= read -r line
+do
+  echo "$line"
+  result="$xmlresult""$line"
+done < "$xmlinput"
+
+
+echo "::set-output name=result_text::$txtresult"
+echo "::set-output name=result_xml::$xmlresult"

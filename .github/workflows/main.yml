@@ -33,7 +33,8 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "Result text from .sh ${{ steps.hello.outputs.result_text }}"
+        run: echo "Result text from my_package.txt .sh: ${{ steps.hello.outputs.result_text }}"
+ 	run: echo "Result xml from AndroidManifest from .sh: ${{ steps.hello.outputs.result_xml }}"
         
   job_1:
     name: Add 3 and 7
