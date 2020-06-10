@@ -9,5 +9,7 @@ do
    echo $eachfile
 done
 
+echo Get-Content my_package.txt
+
 value="my_package.txt"
 echo "::set-output name=surname::$value"
