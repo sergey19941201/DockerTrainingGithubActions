@@ -17,7 +17,7 @@ txtresult=""
 while IFS= read -r line
 do
   echo "$line"
-  result="$txtresult""$line"
+  txtresult="$txtresult""$line"
 done < "$input"
 
 sed -i 's/android:versionName/myVersionName/g' AndroidManifest.xml
@@ -27,7 +27,7 @@ xmlresult =""
 while IFS= read -r line
 do
   echo "$line"
-  result="$xmlresult""$line"
+  xmlresult="$xmlresult""$line"
 done < "$xmlinput"
 
 
