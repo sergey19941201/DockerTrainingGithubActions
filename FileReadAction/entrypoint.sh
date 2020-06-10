@@ -22,8 +22,9 @@ result="ddd"
 while IFS= read -r line
 do
   echo "$line"
-  result+="$line"
+  result="$result""OOO"
 done < "$input"
 
+echo result
 
 echo "::set-output name=surname::$result"
