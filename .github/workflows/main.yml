@@ -38,7 +38,8 @@ jobs:
       - name: Get the output text from script
         run: echo "Result text from .sh ${{ steps.read_from_file.outputs.result_text }} dd ${{ steps.read_from_file.outputs.result_xml }}"
 
-  windows_ps1_script:      
+  windows_ps1_script:
+    runs-on: windows-2019      
     steps:
       - uses: actions/checkout@v1
       - name: Run a one-line script
