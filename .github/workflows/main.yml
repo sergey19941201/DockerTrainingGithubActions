@@ -41,6 +41,16 @@ jobs:
         with:
           name: manifest
           path: manifest.xml
+
+  windows_powershell:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run a one-line script
+        run: .\FileReadAction\my_script.ps1
+        shell: powershell
+
   job_1:
     name: Add 3 and 7
     runs-on: ubuntu-latest
