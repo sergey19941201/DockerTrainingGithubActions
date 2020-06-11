@@ -2,8 +2,11 @@ on: [push]
 
 jobs:
   hello_world_job:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
     name: A job to say hello
+    runs-on: ${{ matrix.os }}
     steps:
       # To use this repository's private action,
       # you must check out the repository
@@ -16,7 +19,7 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }} Environment Variable value ${GITHUB_RUN_ID} Surname ${{ steps.hello.outputs.surname }}"
+        run: echo "${{ steps.hello.outputs.result_xml }}"
 
   read_file_from_sh_job:
     runs-on: ubuntu-latest
@@ -33,24 +36,15 @@ jobs:
           who-to-greet: 'Mona the Octocat'
       # Use the output from the `hello` step
       - name: Get the output text from script
-        run: |
-	  echo "Result manifest from .sh ${{ steps.read_from_file.outputs.result_xml }}"
-          expr ${{ steps.read_from_file.outputs.result_xml }} > manifest.xml
-      - name: Upload math result for job 1
-        uses: actions/upload-artifact@v1
-        with:
-          name: manifest
-          path: manifest.xml
+        run: echo "Result text from .sh ${{ steps.read_from_file.outputs.result_text }} dd ${{ steps.read_from_file.outputs.result_xml }}"
 
-  windows_powershell:
-    runs-on: windows-2019
-
+  windows_ps1_script:      
     steps:
       - uses: actions/checkout@v1
       - name: Run a one-line script
         run: .\FileReadAction\my_script.ps1
         shell: powershell
-
+        
   job_1:
     name: Add 3 and 7
     runs-on: ubuntu-latest
