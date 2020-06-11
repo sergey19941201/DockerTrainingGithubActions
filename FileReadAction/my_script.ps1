@@ -8,6 +8,8 @@
 #Requires -Version 3.0
 "Hello, World!wwwwww"
 
+Get-Content AndroidManifest.xml
+
 Function Download-File
 {
    "Hello, World!yyyynnnn"
