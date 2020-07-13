@@ -1,0 +1,16 @@
+name: Do Something That Needs Scheduled
+on:
+  repository_dispatch:
+    types: [do-something]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:  
+ 
+  unit_tests:
+     runs-on: macos-latest
+     steps:
+     - uses: actions/checkout@v1
+     - name: UnitTests
+       run: |
+         nuget restore
+         cd MobileAccess.UnitTests
