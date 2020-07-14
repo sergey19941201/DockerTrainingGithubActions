@@ -8,5 +8,10 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:  
  
-  nothing:
-     runs-on: macos-latest
+  echo_passed_data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.client_payload.ref }}
+      - run: echo ${{ github.event.client_payload.sha }}
