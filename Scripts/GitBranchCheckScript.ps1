@@ -5,6 +5,8 @@ function GetCurrentWeek()
     
     git status
 
+    git show-branch -a
+
     return "";
 }
 
