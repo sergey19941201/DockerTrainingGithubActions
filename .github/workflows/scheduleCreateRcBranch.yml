@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create RC branch
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branchs
+on:
+  schedule:
+    - cron: 5 * * * *
+
+env:
+  DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:  
+  create_rc_branch:
+    runs-on: windows-latest
+    env:
+      DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
+    
+    steps:
+     - uses: actions/checkout@v1
+     - uses: extenda/actions/gcp-secret-manager@v0
+       with:
+         service-account-key: ${{ secrets.SECRET_AUTH }}
+         secrets: |
+           ORG_TOKEN: github-token
+
+     - name: Run Calculate RC Branch Name
+       id: calculate_rc_branch_name_script
+       run: |
+        .\Scripts\CalculateRcBranchName.ps1
+        Get-ChildItem Env: | Where-Object {$_.Name -Match "^BUILD_"} | %{ echo "::set-output name=$($_.Name)::$($_.Value)" }
+
+     - uses: peterjgrainger/action-create-branch@v1.0.0
+       env:
+         GITHUB_TOKEN: "2e558050e4c8b201cec886b6e9f0236990247fb1"     #${{ env.ORG_TOKEN }}
+       with:
+         branch: ${{ steps.calculate_rc_branch_name_script.outputs.BUILD_BRANCH_NAME_OUTPUT }}
+    
