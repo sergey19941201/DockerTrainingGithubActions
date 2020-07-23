@@ -1,6 +1,17 @@
 on: [push]
 
 jobs:
+  git_script_job:
+    runs-on: windows-latest
+    steps:
+     - uses: actions/checkout@v1
+     - name: Run Calculate RC Branch Name
+       id: calculate_rc_branch_name_script
+       run: |
+        .\Scripts\GitBranchCheckScript.ps1
+        Get-ChildItem Env: | Where-Object {$_.Name -Match "^BUILD_"} | %{ echo "::set-output name=$($_.Name)::$($_.Value)" }
+
+
   hello_world_job:
     strategy:
       matrix:
