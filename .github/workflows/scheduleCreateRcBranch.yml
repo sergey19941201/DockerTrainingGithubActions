@@ -20,11 +20,11 @@ jobs:
     
     steps:
      - uses: actions/checkout@v1
-     - uses: extenda/actions/gcp-secret-manager@v0
-       with:
-         service-account-key: ${{ secrets.SECRET_AUTH }}
-         secrets: |
-           ORG_TOKEN: github-token
+#     - uses: extenda/actions/gcp-secret-manager@v0
+#       with:
+#         service-account-key: ${{ secrets.SECRET_AUTH }}
+#         secrets: |
+#           ORG_TOKEN: github-token
 
      - name: Run Calculate RC Branch Name
        id: calculate_rc_branch_name_script
