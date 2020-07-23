@@ -1,4 +1,4 @@
-name: Do Something That Needs Scheduled
+name: Repo dispatch
 on:
   repository_dispatch:
     types: [do-something]
