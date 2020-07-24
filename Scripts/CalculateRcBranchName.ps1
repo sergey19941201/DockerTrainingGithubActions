@@ -29,7 +29,7 @@ function GetCurrentWeek()
         [int]$currentWeek =  Get-WeekNumber($startDate)
         $currentYear = Get-Date  $startDate -UFormat "%Y";
         [string]$currentYear = $currentYear.Substring($currentYear.Length - 2)
-        $branchName ="rc/17.3."+$currentYear+"{0:d2}" -f $currentWeek+";
+        $branchName ="rc/17.3."+$currentYear+"{0:d2}" -f $currentWeek;
     }
 
     $Env:BUILD_BRANCH_NAME_OUTPUT = $branchName
