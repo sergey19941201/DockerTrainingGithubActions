@@ -6,9 +6,7 @@ name: Create RC branch
 # events but only for the master branchs
 on:
   schedule:
-    - cron: '5 * * * *'
-
-  push:
+    - cron: '4 4 * * *' #will be '4 4 * * 2' #means that 4 minute 4 hour every tuesday
 
 env:
   DOTNET_CLI_TELEMETRY_OPTOUT: 'true'
