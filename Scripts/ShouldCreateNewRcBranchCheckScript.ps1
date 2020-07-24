@@ -11,6 +11,15 @@ function CheckIfBranchExists()
         return "branch exists";
     }
 
+    $reminderOfDivision = 11 % 2
+
+    if($reminderOfDivision -ne 0)
+    {
+        $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "false"
+
+        return "branch should not be created this week";
+    }
+
     $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "true"
     
     return "branch does not exist";
