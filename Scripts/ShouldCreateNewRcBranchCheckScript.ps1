@@ -21,6 +21,17 @@ $year_week
 
     $reminderOfDivision = $year_week % 3
 
+
+
+
+"fff"
+$reminderOfDivision
+"fgggjgjgjgjgggggggg2222222222"
+
+
+
+
+
     if($reminderOfDivision -ne 0)
     {
         $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "false"
