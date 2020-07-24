@@ -6,6 +6,10 @@ function CheckIfBranchExists()
 
     [string]$branchList = git branch -a
 
+
+    "type list" 
+    $branchList
+
     if($branchList -Contains $branch_name)
     {
         "FALSE"
