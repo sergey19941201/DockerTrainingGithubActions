@@ -17,6 +17,11 @@ function GetCurrentWeek()
     $branch = "$env:GITHUB_REF".Replace("refs/heads/","");
     [string]$branchName = "";
 
+
+$env:GITHUB_REF
+
+
+
 #    if($branch.StartsWith("develop"))
 #    {
         [datetime]$startDate =  Get-Date -Date "2019-09-30 00:00:00Z"
