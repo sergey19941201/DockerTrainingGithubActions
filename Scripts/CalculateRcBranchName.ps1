@@ -9,7 +9,7 @@
 
 function Get-WeekNumber([datetime]$DateTime = (Get-Date)) {
     $cultureInfo = [System.Globalization.CultureInfo]::CurrentCulture
-    return $cultureInfo.Calendar.GetWeekOfYear($DateTime,$cultureInfo.DateTimeFormat.CalendarWeekRule,$cultureInfo.DateTimeFormat.FirstDayOfWeek)
+    return $cultureInfo.Calendar.GetWeekOfYear($DateTime,$cultureInfo.DateTimeFormat.CalendarWeekRule,$cultureInfo.DateTimeFormat.FirstDayOfWeek) - 3
 }
 
 function GetCurrentWeek()
