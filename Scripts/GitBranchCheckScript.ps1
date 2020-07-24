@@ -1,17 +1,24 @@
 param($branch_name)
 
-function GetCurrentWeek()
+function CheckIfBranchExists()
 {
-    "ghghghhghghgh"
     $branch_name
 
-    $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "hhh"
-    
-    git branch -a
+    [string]$branchList = git branch -a
 
-    return "";
+    if($branchList -Contains $branch_name)
+    {
+        "FALSE"
+        $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "false"
+
+        return "branch exists";
+    }
+
+    $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "true"
+    
+    return "branch does not exist";
 }
 
-$branchName = GetCurrentWeek;
+$branchExists = CheckIfBranchExists;
 
-Write-Host "##[branchName '$branchName']"
+Write-Host "##[branchName '$branchExists']"
