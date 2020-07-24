@@ -9,6 +9,7 @@ function CheckIfBranchExists()
 
     "type list" 
     $branchList
+    "end list"
 
     if($branchList -Contains $branch_name)
     {
