@@ -2,6 +2,14 @@ param($branch_name, $year_week)
 
 function CheckIfBranchExists()
 {
+"fkkfkkfkf"
+$year_week
+"rrrrr"
+
+
+
+
+
     [string]$branchList = git branch -a
 
     if($branchList -Match $branch_name)
