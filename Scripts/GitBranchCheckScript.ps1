@@ -1,7 +1,11 @@
+param($branch_name)
+
 function GetCurrentWeek()
 {
+    "ghghghhghghgh"
+    $branch_name
 
-    $Env:BUILD_BRANCH_NAME_OUTPUT = "hhh"
+    $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "hhh"
     
     git branch -a
 

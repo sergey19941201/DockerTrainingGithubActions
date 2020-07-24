@@ -28,11 +28,20 @@ jobs:
 #         secrets: |
 #           ORG_TOKEN: github-token
 
-     - name: Run Calculate RC Branch Name
+     - name: Run calculate RC branch name script
        id: calculate_rc_branch_name_script
        run: |
         .\Scripts\CalculateRcBranchName.ps1
         Get-ChildItem Env: | Where-Object {$_.Name -Match "^BUILD_"} | %{ echo "::set-output name=$($_.Name)::$($_.Value)" }
+
+     - name: Run git branch check script
+       id: git_branch_check_script
+       run: |
+        $branch_name = "${{ steps.calculate_rc_branch_name_script.outputs.BUILD_BRANCH_NAME_OUTPUT }}"
+        .\Scripts\GitBranchCheckScript.ps1 -branch_name $branch_name
+        Get-ChildItem Env: | Where-Object {$_.Name -Match "^BUILD_"} | %{ echo "::set-output name=$($_.Name)::$($_.Value)" }
+
+
 
      - uses: peterjgrainger/action-create-branch@v1.0.0
        env:
