@@ -1,4 +1,4 @@
-param($branch_name)
+param($branch_name, $year_week)
 
 function CheckIfBranchExists()
 {
@@ -11,7 +11,7 @@ function CheckIfBranchExists()
         return "branch exists";
     }
 
-    $reminderOfDivision = 10 % 2
+    $reminderOfDivision = $year_week % 3
 
     if($reminderOfDivision -ne 0)
     {
