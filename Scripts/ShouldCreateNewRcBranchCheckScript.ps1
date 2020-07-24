@@ -1,9 +1,9 @@
-param($branch_name, $year_week)
+param($branch_name, $week_number)
 
 function CheckIfBranchExists()
 {
 "fkkfkkfkf"
-$year_week
+$week_number
 "rrrrr"
 
 
@@ -19,7 +19,7 @@ $year_week
         return "branch exists";
     }
 
-    $reminderOfDivision = $year_week % 3
+    $reminderOfDivision = $week_number % 3
 
 
 
