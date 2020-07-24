@@ -17,8 +17,8 @@ function GetCurrentWeek()
     $branch = "$env:GITHUB_REF".Replace("refs/heads/","");
     [string]$branchName = "";
 
-    if($branch.StartsWith("develop"))
-    {
+#    if($branch.StartsWith("develop"))
+#    {
         [datetime]$startDate =  Get-Date -Date "2019-09-30 00:00:00Z"
         [datetime]$currentDate = Get-Date ;
         While((New-TimeSpan -Start $startDate -End $currentDate).Days -gt 21)
@@ -30,7 +30,7 @@ function GetCurrentWeek()
         $currentYear = Get-Date  $startDate -UFormat "%Y";
         [string]$currentYear = $currentYear.Substring($currentYear.Length - 2)
         $branchName ="rc/17.3."+$currentYear+"{0:d2}" -f $currentWeek;
-    }
+ #   }
 
     $Env:BUILD_BRANCH_NAME_OUTPUT = $branchName
 
