@@ -39,7 +39,7 @@ jobs:
         $branch_name = "${{ steps.calculate_rc_branch_name_script.outputs.BUILD_BRANCH_NAME_OUTPUT }}"
 
 
-        $year_week = "2027"
+        $year_week = "2028"
         .\Scripts\ShouldCreateNewRcBranchCheckScript.ps1 -branch_name $branch_name -year_week $year_week
         Get-ChildItem Env: | Where-Object {$_.Name -Match "^BUILD_"} | %{ echo "::set-output name=$($_.Name)::$($_.Value)" }
 
