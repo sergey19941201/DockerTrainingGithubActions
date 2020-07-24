@@ -2,14 +2,9 @@ param($branch_name, $week_number)
 
 function CheckIfBranchExists()
 {
-"fkkfkkfkf"
-$week_number
-"rrrrr"
-
-
-
-
-
+    "Input week number:"
+    $week_number
+    
     [string]$branchList = git branch -a
 
     if($branchList -Match $branch_name)
@@ -20,17 +15,8 @@ $week_number
     }
 
     $reminderOfDivision = $week_number % 3
-
-
-
-
-"fff"
-$reminderOfDivision
-"fgggjgjgjgjgggggggg2222222222"
-
-
-
-
+    "reminderOfDivision:"
+    $reminderOfDivision
 
     if($reminderOfDivision -ne 0)
     {
