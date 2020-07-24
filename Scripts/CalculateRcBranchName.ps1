@@ -18,7 +18,7 @@ function GetCurrentWeek()
     [string]$branchName = "";
 
 
-$env:GITHUB_REF
+
 
 
 

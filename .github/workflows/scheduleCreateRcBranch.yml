@@ -36,7 +36,7 @@ jobs:
 
      - uses: peterjgrainger/action-create-branch@v1.0.0
        env:
-         GITHUB_TOKEN: "2e558050e4c8b201cec886b6e9f0236990247fb1"     #${{ env.ORG_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     #${{ env.ORG_TOKEN }}
        with:
          branch: ${{ steps.calculate_rc_branch_name_script.outputs.BUILD_BRANCH_NAME_OUTPUT }}
     
