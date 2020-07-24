@@ -37,6 +37,7 @@ function GetCurrentWeek()
         $branchName ="rc/17.3."+$currentYear+"{0:d2}" -f $currentWeek;
  #   }
 
+    $Env:BUILD_WEEK_NUMBER_OUTPUT = $currentWeek
     $Env:BUILD_BRANCH_NAME_OUTPUT = $branchName
 
     return $branchName;
