@@ -43,9 +43,9 @@ jobs:
 
 
 #        if: steps.should_create_new_rc_branch_check_script.outputs.BUILD_SHOULD_CREATE_NEW_RC_OUTPUT == 'true'
-#      - uses: peterjgrainger/action-create-branch@v1.0.0
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     #${{ env.ORG_TOKEN }}
-#        with:
-#          branch: ${{ steps.calculate_rc_branch_name_script.outputs.BUILD_BRANCH_NAME_OUTPUT }}
+     - uses: peterjgrainger/action-create-branch@v1.0.0
+       env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     #${{ env.ORG_TOKEN }}
+       with:
+         branch: ${{ steps.calculate_rc_branch_name_script.outputs.BUILD_BRANCH_NAME_OUTPUT }}
     
