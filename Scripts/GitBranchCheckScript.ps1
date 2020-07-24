@@ -11,7 +11,7 @@ function CheckIfBranchExists()
     $branchList
     "end list"
 
-    if($branchList -Contains $branch_name)
+    if($branchList -Match $branch_name)
     {
         "FALSE"
         $Env:BUILD_SHOULD_CREATE_NEW_RC_OUTPUT = "false"
