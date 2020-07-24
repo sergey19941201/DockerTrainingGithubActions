@@ -11,7 +11,7 @@ function CheckIfBranchExists()
         return "branch exists";
     }
 
-    $reminderOfDivision = 11 % 2
+    $reminderOfDivision = 10 % 2
 
     if($reminderOfDivision -ne 0)
     {
