@@ -41,8 +41,6 @@ jobs:
         .\Scripts\ShouldCreateNewRcBranchCheckScript.ps1 -branch_name $branch_name
         Get-ChildItem Env: | Where-Object {$_.Name -Match "^BUILD_"} | %{ echo "::set-output name=$($_.Name)::$($_.Value)" }
 
-
-     - name: Create RC if not exists
      - uses: peterjgrainger/action-create-branch@v1.0.0
        if: ${{ steps.should_create_new_rc_branch_check_script.outputs.BUILD_SHOULD_CREATE_NEW_RC_OUTPUT == 'true' }}
        env:
